@@ -58,3 +58,32 @@ CREATE TABLE question (
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+curl --location 'localhost:1504/v1/admin/exam' \
+--header 'Content-Type: application/json' \
+--data '{
+    "name":"exam 1",
+    "totalQuestions":10,
+    "totalQuestionsExam":10,
+    "minScore":50,
+    "startDate":"10-09-2024"
+
+}'
+
+
+curl --location 'localhost:1504/v1/admin/exam'
+
+curl --location --request PATCH 'localhost:1504/v1/admin/exam' \
+--header 'Content-Type: application/json' \
+--data '{
+    "examId":1,
+    "questions":[{
+        "description":"q1",
+        "isMulti":false,
+        "options":["a","b","c","d"],
+        "answer":["b"]
+    }],
+    "status":"draft"
+
+}'
