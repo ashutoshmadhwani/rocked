@@ -1,3 +1,5 @@
+Added below steps to run application , DB schema and sample Curl  for api signature
+
 npm i 
 npm run start
 
